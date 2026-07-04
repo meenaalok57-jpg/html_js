@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeStream | Ultra Flow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="dark-mode"> 
+    <script src="script.js"></script>
+    <nav class="nav-menu">
+        <a class="nav-link active" onclick="showPage('lobby')">HOME</a>
+        <a class="nav-link" onclick="showPage('about')">ABOUT</a>
+        <a class="nav-link" onclick="showPage('contact')">CONTACT</a>
+    </nav>
+
+    <button class="mode-toggle" onclick="toggleMode()">
+        <i id="mode-icon" class="fa-solid fa-sun"></i>
+    </button>
+
+    <div class="search-container">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="genreSearch" placeholder="Search Genres or Artists..." onkeyup="filterGenres()">
+        </div>
+    </div>
+
+    <div class="bg-mesh"></div>
+
+    <div class="container active-page" id="lobby">
+        <h1 class="hero-title">VIBESTREAM</h1>
+
+        <div class="genre-section">
+            <h2>Popular Hits</h2>
+            <div class="big-grid">
+                <div class="genre-card bg-bollywood" onclick="openGenre('Bollywood')">
+                    <div class="card-content">
+                        <div class="glass-info">
+                            <div style="display:flex; align-items:center; gap:15px; margin-bottom:10px;">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3418/3418886.png" style="width:50px; filter: brightness(0) invert(1);">
+                                <i class="fa-solid fa-clapperboard"></i>
+                            </div>
+                            <h3>BOLLYWOOD</h3>
+                            <p>100+ Original Anthems</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="genre-card" onclick="openGenre('Hollywood')">
+                    <img src="https://images.unsplash.com/photo-1493225255756-d9584f8606e9?auto=format&fit=crop&w=800" class="card-img" style="width:100%; height:100%; object-fit:cover; position:absolute; z-index:-1;">
+                    <div class="card-content">
+                        <div class="glass-info">
+                            <i class="fa-solid fa-star"></i>
+                            <h3>HOLLYWOOD</h3>
+                            <p>Chart Toppers & Classics</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="genre-section">
+            <h2>Regional Vibes</h2>
+            <div class="big-grid">
+                <div class="genre-card" onclick="openGenre('Punjabi')">
+                    <img src="https://images.unsplash.com/photo-1593697821028-7cc59cfd7399?auto=format&fit=crop&w=800" class="card-img" style="width:100%; height:100%; object-fit:cover; position:absolute; z-index:-1;">
+                    <div class="card-content">
+                        <div class="glass-info">
+                            <i class="fa-solid fa-drum"></i>
+                            <h3>PUNJABI</h3>
+                            <p>High Energy Beats</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="genre-card" onclick="openGenre('Rap')">
+                    <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800" class="card-img" style="width:100%; height:100%; object-fit:cover; position:absolute; z-index:-1;">
+                    <div class="card-content">
+                        <div class="glass-info">
+                            <i class="fa-solid fa-microphone-lines"></i>
+                            <h3>RAP & HIP HOP</h3>
+                            <p>Street Culture Flows</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="genre-section">
+            <h2>Moods & More</h2>
+            <div class="big-grid">
+                <div class="genre-card" onclick="openGenre('LoFi')">
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800" class="card-img" style="width:100%; height:100%; object-fit:cover; position:absolute; z-index:-1;">
+                    <div class="card-content">
+                        <div class="glass-info">
+                            <i class="fa-solid fa-mug-hot"></i>
+                            <h3>LO-FI CHILL</h3>
+                            <p>Relaxing Study Beats</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="genre-card bg-rock" onclick="openGenre('Rock')">
+                    <div class="card-content">
+                        <div class="glass-info">
+                            <div style="display:flex; align-items:center; gap:15px; margin-bottom:10px;">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3063/3063613.png" style="width:50px; filter: brightness(0) invert(1);">
+                                <i class="fa-solid fa-guitar"></i>
+                            </div>
+                            <h3>ROCK LEGENDS</h3>
+                            <p>Classic Rock & Metal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="about">
+        <div class="page-header">
+            <h1>Our Story</h1>
+            <p style="opacity:0.6">Crafting the future of sonic immersion.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h2 style="color:var(--accent); margin-bottom:20px;">Founded: Jan 2026</h2>
+                <p>VibeStream was born out of a simple realization: Music isn't just audio; it's an atmosphere. Launched in the heart of the digital era, we aimed to create a space where <strong>High-Fidelity</strong> meets <strong>Ultra-Flow</strong> aesthetics.</p>
+                <br>
+                <p>Our engine provides seamless transitions across 6 core genres, featuring a library of 100+ carefully curated tracks per genre. Whether you're chasing the adrenaline of a Punjabi beat or the calm of a Lo-Fi rainy night, VibeStream is your rhythmic companion.</p>
+            </div>
+            <div class="about-visual">
+                <i class="fa-solid fa-wave-square"></i>
+                <div style="position:absolute; bottom:20px; text-align:center;">
+                    <h3 style="color:white">The Rhythm Engine v3.0</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <div class="page-header">
+            <h1>Get In Touch</h1>
+            <p style="opacity:0.6">Have feedback or want to list your track?</p>
+        </div>
+        <div class="contact-form">
+            <div class="input-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="John Doe">
+            </div>
+            <div class="input-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="john@vibestream.com">
+            </div>
+            <div class="input-group">
+                <label>Message</label>
+                <textarea rows="5" placeholder="Tell us your vibe..."></textarea>
+            </div>
+            <button class="submit-btn">SEND FLOW</button>
+            <div style="margin-top:30px; text-align:center; opacity:0.7; font-size:0.9rem;">
+                <p><i class="fa-solid fa-location-dot"></i> Silicon Valley, CA</p>
+                <p><i class="fa-solid fa-envelope"></i> support@vibestream.io</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="player-overlay">
+        <i class="fa-solid fa-xmark close-player" onclick="closePlayer()"></i>
+        <div class="player-container">
+            <div class="player-left">
+                <img id="main-art" class="main-art" src="" alt="Art">
+                
+                <div class="action-bar" style="display: flex; gap: 20px; font-size: 1.5rem; margin-bottom: 20px; cursor: pointer;">
+                    <i class="fa-regular fa-heart" id="like-btn" onclick="this.classList.toggle('fa-solid'); this.classList.toggle('fa-regular')"></i>
+                    <i class="fa-solid fa-share-nodes" onclick="alert('Link Copied!')"></i>
+                    <i class="fa-solid fa-circle-down" onclick="alert('Download Started...')"></i>
+                </div>
+
+                <h1 id="track-title" style="font-size: 2.5rem; margin-bottom: 5px;">Song Title</h1>
+                <p id="track-artist" style="opacity: 0.5; font-size: 1.2rem; margin-bottom: 35px;">Artist Name</p>
+                
+                <div style="display:flex; justify-content:center; gap:40px; align-items:center;">
+                    <i class="fa-solid fa-backward-step" style="font-size:2rem; cursor:pointer" onclick="prevSong()"></i>
+                    <div onclick="togglePlay()" class="play-trigger">
+                        <i id="play-icon" class="fa-solid fa-play" style="font-size:2.2rem"></i>
+                    </div>
+                    <i class="fa-solid fa-forward-step" style="font-size:2rem; cursor:pointer" onclick="nextSong()"></i>
+                </div>
+
+                <input type="range" id="progress" value="0" style="width:100%; margin-top:40px; accent-color: var(--accent);">
+                
+                <div class="volume-bar" style="display: flex; align-items: center; gap: 10px; margin-top: 20px;">
+                    <i class="fa-solid fa-volume-low"></i>
+                    <input type="range" min="0" max="1" step="0.1" value="0.8" oninput="audio.volume = this.value" style="flex:1">
+                    <i class="fa-solid fa-volume-high"></i>
+                </div>
+            </div>
+            <div class="playlist-side" id="playlist-list"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h2 style="letter-spacing: 5px; color: var(--accent);">VIBESTREAM</h2>
+            <p>Your ultimate destination for high-fidelity audio and rhythmic flows.</p>
+            <div class="social-links">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-spotify"></i>
+                <i class="fa-brands fa-youtube"></i>
+            </div>
+            <p style="opacity: 0.5; font-size: 0.8rem; margin-top: 20px;">&copy; 2026 VibeStream Music. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <audio id="audio-engine"></audio>
+
+
+</body>
+</html>
